@@ -1,0 +1,24 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { --primary:112 39 255; --electric:168 85 247; --ink:9 6 17; --card:23 16 36; --lav:196 165 255; --muted:169 160 184; }
+html[data-theme="dark"] { --primary:110 110 125; --electric:170 170 185; --ink:10 10 11; --card:22 22 24; --lav:205 205 215; --muted:160 160 165; }
+html { scroll-behavior: smooth; }
+body { background: rgb(var(--ink)); color: #fff; }
+.glass { background: rgb(var(--card) / .6); backdrop-filter: blur(14px); border: 1px solid rgb(var(--lav) / .15); }
+.card { background: rgb(var(--card)); border: 1px solid rgb(var(--lav) / .12); border-radius: 1.25rem;
+  transition: border-color .25s, box-shadow .25s, transform .25s; }
+.card:hover { border-color: rgb(var(--electric) / .6); box-shadow: 0 0 32px rgb(var(--primary) / .25); }
+.grad-text { background: linear-gradient(90deg, rgb(var(--lav)), rgb(var(--electric)), rgb(var(--primary))); -webkit-background-clip: text; color: transparent; }
+.btn { border-radius: 9999px; padding: .75rem 1.5rem; font-weight: 600; transition: transform .15s, box-shadow .25s; }
+.btn:active { transform: scale(.96); }
+.btn-primary { background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--electric))); box-shadow: 0 0 24px rgb(var(--primary) / .45); }
+.btn-primary:hover { box-shadow: 0 0 36px rgb(var(--electric) / .7); }
+.btn-ghost { border: 1px solid rgb(var(--lav) / .35); }
+.btn-ghost:hover { background: rgb(var(--lav) / .1); }
+.bg-aurora { background: radial-gradient(60% 50% at 70% 20%, rgb(var(--primary) / .35), transparent 70%),
+  radial-gradient(40% 40% at 10% 80%, rgb(var(--electric) / .2), transparent 70%); background-size: 140% 140%; animation: drift 18s ease-in-out infinite alternate; }
+@keyframes drift { to { background-position: 30% 20%; } }
+@keyframes load { from { width: 0; } to { width: 100%; } }
+html.has-cursor, html.has-cursor * { cursor: none; }
+html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+html[data-reduce="1"] * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
